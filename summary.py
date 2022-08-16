@@ -34,7 +34,7 @@ class Summary:
                     )
         with open(self.s, 'a') as fout:
             fout.write(s + '\n')
-        print(s)
+        #print(s)
 
     def summaryWrite(self):
         s = '-------summary-------\n' \

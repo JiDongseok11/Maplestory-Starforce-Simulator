@@ -15,23 +15,19 @@ class Upgrader:
         self.totalPrice = 0
 
     def get_randNum(self):
-        return random.randrange(1, 1000)
+        return random.uniform(1, 100)
 
     def is_success(self):
         successProb = []
         failProb = []
         breakProb = []
-        tempProb = []
         Prob = self.Item.get_currentProb()
-        #확률 테이블을 편의를 위해 [1, 1000] range로 변경
-        for prob in Prob:
-            tempProb.append(int(prob*10))
 
-        randNum = self.get_randNum() #randNum = [1, 1000]
-
-        if randNum < tempProb[0]+1:
+        randNum = self.get_randNum()
+        
+        if randNum <= Prob[0]:
             return SUCCESS
-        elif randNum < tempProb[0]+tempProb[1]+1:
+        elif randNum <= Prob[0]+Prob[1]:
             return FAIL
         else:
             return BREAK 
