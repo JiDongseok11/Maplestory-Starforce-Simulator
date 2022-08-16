@@ -1,5 +1,5 @@
 from item import *
-from price import get_price
+from price import Price
 import math
 import random
 
@@ -13,6 +13,8 @@ class Upgrader:
         self.targetStars = targetStars
         self.Item = Item
         self.totalPrice = 0
+        
+        self.price = Price()
 
     def get_randNum(self):
         return random.uniform(1, 100)
@@ -34,7 +36,7 @@ class Upgrader:
 
     def do_upgrade(self):
         while self.Item.currentStars != self.targetStars:
-            self.totalPrice += get_price(self.Item.level, self.Item.currentStars)
+            self.totalPrice += self.price.get_price(self.Item.level, self.Item.currentStars)
             if self.Item.is_chance():
                 isSuccess = SUCCESS
                 #print("Chance Time!")

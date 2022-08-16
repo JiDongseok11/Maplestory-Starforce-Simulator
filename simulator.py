@@ -1,7 +1,6 @@
 from upgrader import *
 from item import *
 from fileparser import Fileparser
-from price import get_price
 
 CYCLE = 1
 FILENAME = 'probability_table.txt'
@@ -34,7 +33,7 @@ class Simulator:
             Item = self.item,
             targetStars = self.targetStars
         )
-
+        
     def reset(self):
         self.item.reset()
         self.upgrader.totalPrice = 0

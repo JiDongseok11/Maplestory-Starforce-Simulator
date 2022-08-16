@@ -24,11 +24,13 @@ for episode in tqdm(range(CYCLE), desc = 'simulation process', unit = 'episodes'
     summary.add('attempt', simulator.item.get_tryNum())
     summary.add('break', simulator.item.get_breakNum())
     summary.add('price', simulator.upgrader.totalPrice/SCALE)
-
+    summary.addGraph(simulator.upgrader.totalPrice/SCALE)
+    
     summary.episodeWrite(episode)
 
     simulator.reset()
 
 summary.summaryWrite()
+summary.graphWrite()
 # with open('log.txt', 'r') as fin:
     
