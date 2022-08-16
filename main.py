@@ -1,7 +1,7 @@
 from simulator import Simulator
 from summary import Summary
 
-CYCLE = 100000
+CYCLE = 10
 FILENAME = 'probability_table.txt'
 TARGETSTARS = 22
 LEVEL = 160

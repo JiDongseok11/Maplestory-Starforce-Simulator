@@ -1,6 +1,9 @@
+from datetime import datetime
+
 class Summary:
     def __init__(self):
         self.storage = {}
+        self.s = './result/' + datetime.now().isoformat() + ' log.txt'
 
     def add(self, metrics, value):
         self.storage.setdefault(metrics, [])
@@ -29,18 +32,18 @@ class Summary:
                     self.storage['break'][episode],
                     self.storage['price'][episode]
                     )
-        with open('logs.txt', 'a') as fout:
+        with open(self.s, 'a') as fout:
             fout.write(s + '\n')
         print(s)
 
     def summaryWrite(self):
         s = '-------summary-------\n' \
-            'average attempt: {}, ' \
-            'average break: {}, ' \
-            'average price: {:.2f}, '\
-            'max, min attempt: {}, {}' \
-            'max, min break: {}, {}' \
-            'max, min price: {:.2f}, {:.2f} '\
+            'average attempt: {}\n' \
+            'average break: {}\n' \
+            'average price: {:.2f}\n'\
+            'max, min attempt: {}, {}\n' \
+            'max, min break: {}, {}\n' \
+            'max, min price: {:.2f}, {:.2f}\n'\
             .format(self.get_average('attempt'),
                     self.get_average('break'),
                     self.get_average('price'),
@@ -48,19 +51,21 @@ class Summary:
                     self.get_maximum('break'), self.get_minimum('break'),
                     self.get_maximum('price'), self.get_minimum('price'),
                     )
-        with open('logs.txt', 'a') as fout:
+        with open(self.s, 'a') as fout:
             fout.write(s + '\n')
         print(s)
 
     def iteminfoWrite(self, level, initStars, targetStars):
         s = 'item level: {}, ' \
             'initial stars: {}, ' \
-            'target stars: {}' \
+            'target stars: {}\n' \
+            '-------episodes-------'\
             .format(level,
                     initStars,
                     targetStars
                     )
-        with open('logs.txt', 'a') as fout:
+            
+        with open(self.s, 'a') as fout:
             fout.write(s + '\n')
         print(s)
 
