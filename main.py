@@ -2,9 +2,9 @@ from simulator import Simulator
 from summary import Summary
 from tqdm import tqdm
 
-CYCLE = 10
+CYCLE = 10000
 FILENAME = 'probability_table.txt'
-TARGETSTARS = 17
+TARGETSTARS = 22
 LEVEL = 160
 STARS = 0
 SCALE = 100000000
